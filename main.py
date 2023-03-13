@@ -2,10 +2,11 @@
 
 import uvicorn
 from fastapi import FastAPI, Request
-from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+
 from chat.chat import Chat
 
 # Create a FastAPI instance
@@ -27,9 +28,11 @@ app.add_middleware(
 # Dictionary to store conversation data
 conversations = {}
 
+
 class Message(BaseModel):
     input: str
-    
+
+
 class Response(BaseModel):
     output: str
 
